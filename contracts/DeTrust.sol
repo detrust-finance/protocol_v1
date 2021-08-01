@@ -32,7 +32,7 @@ contract DeTrust is IDeTrust, Initializable {
     /**
      * constructor replaced by initialize with timelock upgrade
      */
-    function initialize() public initializer {
+    function initialize() external initializer {
         unlocked = 1;
     }
 
