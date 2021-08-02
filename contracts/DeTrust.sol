@@ -1,5 +1,5 @@
 //SPDX-License-Identifier: Unlicense
-pragma solidity ^0.8.0;
+pragma solidity 0.8.0;
 
 import "./interfaces/IDeTrust.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
