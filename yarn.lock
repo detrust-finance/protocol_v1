@@ -742,11 +742,6 @@
   resolved "https://registry.nlark.com/@solidity-parser/parser/download/@solidity-parser/parser-0.12.2.tgz?cache=0&sync_timestamp=1622637917845&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40solidity-parser%2Fparser%2Fdownload%2F%40solidity-parser%2Fparser-0.12.2.tgz"
   integrity "sha1-GvrTZ8spou2M3Uo6YnAcKCH7V48= sha512-d7VS7PxgMosm5NyaiyDJRNID5pK4AWj1l64Dbz0147hJgy5k2C0/ZiKK/9u5c5K+HRUVHmp+RMvGEjGh84oA5Q=="
 
-"@symfoni/hardhat-react@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.nlark.com/@symfoni/hardhat-react/download/@symfoni/hardhat-react-0.3.0.tgz"
-  integrity "sha1-rxLLCk723myGI/+yHuPOgMokCpw= sha512-P5/Qs0GFqdQWXv6flLx8WZRs1UtY0XIjWb11PXwv6wa6EjJR9WZGcUm2iCw/H8kIpFcE+NaFj/rNTpNQQxwS1A=="
-
 "@szmarczak/http-timer@^1.1.2":
   version "1.1.2"
   resolved "https://registry.npm.taobao.org/@szmarczak/http-timer/download/@szmarczak/http-timer-1.1.2.tgz"
