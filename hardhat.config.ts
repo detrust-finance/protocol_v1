@@ -3,7 +3,7 @@ import "@nomiclabs/hardhat-waffle";
 import "@nomiclabs/hardhat-ethers";
 import "hardhat-deploy-ethers";
 import "hardhat-deploy";
-import "@symfoni/hardhat-react";
+//import "@symfoni/hardhat-react";
 import "hardhat-typechain";
 import "@typechain/ethers-v5";
 import "hardhat-gas-reporter";
@@ -48,11 +48,11 @@ task("accounts", "Prints the list of accounts", async (args, hre) => {
  * @type import('hardhat/config').HardhatUserConfig
  */
 const config: HardhatUserConfig = {
-  react: {
-    providerPriority: ["web3modal", "hardhat"],
-  },
+  // react: {
+  //   providerPriority: ["web3modal", "hardhat"],
+  // },
   paths: {
-    react: "./frontend/src/hardhat",
+    //react: "./frontend/src/hardhat",
     deployments: "./frontend/src/hardhat/deployments",
     sources: "./contracts",
     tests: "./test",
@@ -74,7 +74,7 @@ const config: HardhatUserConfig = {
   },
   networks: {
     hardhat: {
-      inject: false, // optional. If true, it will EXPOSE your mnemonic in your frontend code. Then it would be available as an "in-page browser wallet" / signer which can sign without confirmation.
+      //inject: false, // optional. If true, it will EXPOSE your mnemonic in your frontend code. Then it would be available as an "in-page browser wallet" / signer which can sign without confirmation.
       chainId: 1337,
       accounts: createAccountsConfig(env.HARDHAT_ACCOUNTS),
     },

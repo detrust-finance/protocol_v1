@@ -2,8 +2,11 @@
   "name": "hardhat-project",
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@nomiclabs/hardhat-etherscan": "^2.1.4",
     "@nomiclabs/hardhat-waffle": "^2.0.1",
     "@nomiclabs/hardhat-web3": "^2.0.0",
+    "@openzeppelin/contracts": "^4.2.0",
+    "@openzeppelin/contracts-upgradeable": "^4.2.0",
     "@openzeppelin/hardhat-upgrades": "^1.8.2",
     "@typechain/ethers-v5": "^4.0.0",
     "@types/node": "^15.12.2",
@@ -27,12 +30,6 @@
   "scripts": {
     "compile": "npx hardhat compile",
     "test": "npx hardhat test",
-    "node": "npx hardhat node --watch",
-    "frontend": "cd frontend && npm run start"
-  },
-  "dependencies": {
-    "@nomiclabs/hardhat-etherscan": "^2.1.3",
-    "@openzeppelin/contracts": "^4.1.0",
-    "@openzeppelin/contracts-upgradeable": "^4.1.0"
+    "node": "npx hardhat node --watch"
   }
 }
