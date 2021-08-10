@@ -208,6 +208,26 @@
 
 
     /*
+     * Event that a trust is releaseed
+     *
+     * @param trustId the trustId of the trust
+     */
+### `event TrustReleased(uint indexed trustId, address indexed beneficiary, uint amount, uint nextReleaseTime)`
+
+
+
+
+    /*
+     * Event that a trust is revoked
+     *
+     * @param trustId the trustId of the trust
+     */
+### `event TrustRevoked(uint indexed trustId)`
+
+
+
+
+    /*
      * Event that beneficiary get some money from the contract
      *
      * @param beneficiary the address of beneficiary
