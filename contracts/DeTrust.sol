@@ -230,7 +230,6 @@ contract DeTrust is IDeTrust, Initializable {
             emit TrustFinished(tId);
         }
         require(payable(to).send(releaseAmount), "release failed");
-        emit TrustReleased(tId, to, releaseAmount);
         emit Release(beneficiary, releaseAmount);
     }
 
@@ -248,7 +247,6 @@ contract DeTrust is IDeTrust, Initializable {
             Trust storage t = trusts[tId];
             uint releaseAmount = _releaseTrust(t);
             if (releaseAmount != 0) {
-                emit TrustReleased(tId, to, releaseAmount);
                 totalReleaseAmount += releaseAmount;
             }
             isDeleted = (t.totalAmount == 0);
@@ -352,10 +350,11 @@ contract DeTrust is IDeTrust, Initializable {
         if (releaseAmount >= t.totalAmount) {
             releaseAmount = t.totalAmount;
             t.totalAmount = 0;
-            return releaseAmount;
+        } else {
+            t.totalAmount -= releaseAmount;
+            t.nextReleaseTime += distributionAmount * t.timeInterval;
         }
-        t.totalAmount -= releaseAmount;
-        t.nextReleaseTime += distributionAmount * t.timeInterval;
+        emit TrustReleased(t.id, t.beneficiary, releaseAmount, t.nextReleaseTime);
         return releaseAmount;
     }
 

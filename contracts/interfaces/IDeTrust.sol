@@ -63,7 +63,8 @@ interface IDeTrust {
     event TrustReleased(
         uint indexed trustId,
         address indexed beneficiary,
-        uint amount
+        uint amount,
+        uint nextReleaseTime
     );
 
     /*
