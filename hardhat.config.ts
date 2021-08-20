@@ -3,9 +3,6 @@ import "@nomiclabs/hardhat-waffle";
 import "@nomiclabs/hardhat-ethers";
 import "hardhat-deploy-ethers";
 import "hardhat-deploy";
-//import "@symfoni/hardhat-react";
-import "hardhat-typechain";
-import "@typechain/ethers-v5";
 import "hardhat-gas-reporter";
 import "@openzeppelin/hardhat-upgrades";
 import "@nomiclabs/hardhat-etherscan";
@@ -52,8 +49,6 @@ const config: HardhatUserConfig = {
   //   providerPriority: ["web3modal", "hardhat"],
   // },
   paths: {
-    //react: "./frontend/src/hardhat",
-    deployments: "./frontend/src/hardhat/deployments",
     sources: "./contracts",
     tests: "./test",
     cache: "./cache",
@@ -63,10 +58,6 @@ const config: HardhatUserConfig = {
     deployer: {
       default: 0,
     },
-  },
-  typechain: {
-    outDir: "./frontend/src/hardhat/typechain",
-    target: "ethers-v5",
   },
   gasReporter: {
     currency: "USD",
