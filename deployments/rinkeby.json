@@ -1,0 +1,10 @@
+{
+  "DeTrust": {
+    "address": "0x8345b786aaa8C82e82A6d51F9669B3f8638f9141",
+    "txHash": "0x182cdb5f7100aeab39472fd148c0b587e2bc0a302dea52421eecec72b1a14027"
+  },
+  "TimelockController": {
+    "address": "0x139B3524768bAf0Efbaf26C9e7329f7F08f1dA50",
+    "txHash": "0x3d94c3c15961023e1cd6897987c0544b1e27d2313286d35d3e2c544e4323d871"
+  }
+}
