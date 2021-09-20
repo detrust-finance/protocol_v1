@@ -1,6 +1,11 @@
 const { loadPreviousDeployment, verifyContract } = require("./utils.js");
 const { ethers, upgrades, network } = require("hardhat");
-const argumentsArray = require("./timelock_arguments.js");
+const envResult = require("dotenv").config();
+if (envResult.error) {
+  throw envResult.error;
+}
+const env = envResult.parsed;
+
 const UPGRADE_ABI = [
   "function upgrade(address proxy, address implementation)",
   "function schedule(address target, uint256 value, bytes calldata data, bytes32 predecessor, bytes32 salt, uint256 delay)",
@@ -30,7 +35,7 @@ async function main() {
     data,
     "0x0000000000000000000000000000000000000000000000000000000000000000",
     "0x0000000000000000000000000000000000000000000000000000000000000000",
-    argumentsArray[0],
+    env[`${network.name.toUpperCase()}_TIMELOCK_DELAY_SECONDS`],
   ]);
   console.log("schedule data:", schedule_data);
   const execute_data = iface.encodeFunctionData("execute", [

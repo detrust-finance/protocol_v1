@@ -4,7 +4,13 @@ const {
   loadPreviousDeployment,
   verifyContract,
 } = require("./utils.js");
-const argumentsArray = require("./timelock_arguments");
+const envResult = require("dotenv").config();
+
+if (envResult.error) {
+  throw envResult.error;
+}
+const env = envResult.parsed;
+
 async function main() {
   const [deployer] = await ethers.getSigners();
 
@@ -37,16 +43,21 @@ async function main() {
   await verifyContract(logicAddress);
 
   const Timelock = await ethers.getContractFactory("TimelockController");
+  timelock_args = [
+    env[`${network.name}_TIMELOCK_DELAY_SECONDS`],
+    JSON.parse(env[`${network.name.toUpperCase()}_TIMELOCK_PROPOSERS`]),
+    JSON.parse(env[`${network.name.toUpperCase()}_TIMELOCK_EXECUTORS`]),
+  ];
   timelock = await loadOrDeploy(
     deployer,
     network.name,
     Timelock,
     "TimelockController",
     deploymentState,
-    argumentsArray
+    timelock_args
   );
   console.log("Timelock address:", timelock.address);
-  await verifyContract(timelock.address, argumentsArray);
+  await verifyContract(timelock.address, timelock_args);
   const newOwnerOfTheProxyAdmin = timelock.address;
   console.log("Transferring ownership of ProxyAdmin to Timelock"); // The owner of the ProxyAdmin can upgrade our contracts
   await upgrades.admin.transferProxyAdminOwnership(newOwnerOfTheProxyAdmin);
