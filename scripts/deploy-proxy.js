@@ -4,7 +4,7 @@ const {
   loadPreviousDeployment,
   verifyContract,
 } = require("./utils.js");
-const argumentsArray = require("./arguments.js");
+const argumentsArray = require("./timelock_arguments");
 async function main() {
   const [deployer] = await ethers.getSigners();
 
