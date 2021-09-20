@@ -9,6 +9,9 @@ import "@nomiclabs/hardhat-etherscan";
 import * as dotenv from "dotenv";
 import * as _ from "lodash";
 
+const devChainRichAccount =
+  "0x4d5db4107d237df6a3d58ee5f70ae63d73d7658d4026f2eefd2f204c81682cb7";
+
 // Load `.env` file as configuration.
 const envResult = dotenv.config();
 //console.log(envResult);
@@ -69,19 +72,19 @@ const config: HardhatUserConfig = {
       chainId: 1337,
       accounts: createAccountsConfig(env.HARDHAT_ACCOUNTS),
     },
-    // ropsten: {
-    //   url: env.ROPSTEN_URL,
-    //   accounts: [env.ROPSTEN_PRIVATE_KEY],
-    // },
-    // mainnet: {
-    //   url: env.MAINNET_URL,
-    //   accounts: [env.MAINNET_PRIVATE_KEY],
-    // },
-    //rinkeby: {
-    //  url: env.RINKEBY_URL,
-    //  accounts: [env.RINKEBY_PRIVATE_KEY],
-    //  gas: 10000000,
-    //},
+    dev: {
+      url: "http://localhost:8545",
+      accounts: [devChainRichAccount],
+    },
+    mainnet: {
+      url: env.MAINNET_URL,
+      accounts: [env.MAINNET_PRIVATE_KEY],
+    },
+    rinkeby: {
+      url: env.RINKEBY_URL,
+      accounts: [env.RINKEBY_PRIVATE_KEY],
+      gas: 10000000,
+    },
   },
   solidity: {
     compilers: [
